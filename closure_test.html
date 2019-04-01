@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <script>
+        // 클로저 : 내부 함수에서 외부 함수의 지역변수를 접근 할 수 있는 것
+        function factory_movie(title)
+        {
+            return{
+                get_title : function()
+                {
+                    return title;
+                },
+                set_title : function(_title)
+                {
+                    title = _title;
+                }
+            }
+        }
+
+        ghost = factory_movie('Ghost in the shell');
+        matrix = factory_movie('matrix');
+
+        alert(ghost.get_title());
+        alert(matrix.get_title());
+
+        ghost.set_title('공각기동대');
+        alert(ghost.get_title());
+        alert(matrix.get_title());
+
+        var arr = []
+        for(var i = 0; i < 5; i++)
+        {
+            arr[i] = function(id) 
+            {
+                return function(){
+                    return id;
+                }
+            }(i); // 익명 함수를 정의하면서 바로 호출
+        }
+        for(var index in arr) {
+            document.write(arr[index]() + '<br/>');
+        }
+    </script>
+</body>
+
+</html>

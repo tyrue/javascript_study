@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <script>
+        // SBO : standard built-in object, 표준 내장 객체
+        var arr = new Array('seoul', 'new york', 'tokyo');
+        function getRandomValueFromArray(arr)
+        {
+            var index = Math.floor(arr.length * Math.random()); // random : 0 ~ 0.999...
+            // floor : 소수점 버림
+            return arr[index];
+        }
+        document.write("city : " + getRandomValueFromArray(arr) + "<br/>");
+
+        // Array 객체에 메소드를 추가함
+        Array.prototype.rand = function()
+        {
+            var index = Math.floor(this.length * Math.random()); 
+            return this[index];
+        }
+        document.write("city : " + arr.rand() + "<br/>");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <script>
+        // Person이라는 함수가 생성자가 된다. 자바스크립트에서는 클래스가 존재하지 않음
+       function Person(name)
+       {
+           this.name = name;
+           this.introduce = function()
+           {
+               return 'My name is ' + this.name + '<br/>';
+           }
+       }
+       var p1 = new Person('kim');
+       var p2 = new Person('Doo');
+
+       document.write(p1.introduce());
+       document.write(p2.introduce());
+
+       var o = {};
+       var p = {};
+       function func()
+       {
+            switch(this)
+            {
+                case o:
+                    document.write('o<br/>');
+                    break;
+                case p:
+                    document.write('p<br/>');
+                    break;
+                case window:
+                    document.write('window<br/>');
+                    break;
+            }
+       }
+       func();
+       func.apply(o); //apply는 this의 값을 제어할 수 있음
+       func.apply(p);
+
+       // 상속
+       function Car(name)
+       {
+           this.name = name;
+       }
+       Car.prototype.name = null;
+       Car.prototype.introduce = function()
+       {
+           return 'My name is ' + this.name;
+       }
+
+       function truck(name)
+       {
+           this.name = name;
+       }
+       truck.prototype = new Car();
+
+       var t1 = new truck('zz');
+       document.write(t1.introduce() + "<br/>");
+    </script>
+</body>
+
+</html>

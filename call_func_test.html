@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <script>
+        // 함수들은 Function 객체의 인스터스다. 그래서 Function의 메소드 apply와 call을 사용 가능함
+        function sum(arg1, arg2) {
+            return arg1 + arg2;
+        }
+        alert(sum.apply(null, [1, 2])); // apply(함수가 실행될 맥락, 인자 배열)
+
+        o1 = {
+            val1: 1,
+            val2: 2,
+            val3: 3
+        }
+        o2 = {
+            v1: 10,
+            v2: 50,
+            v3: 100,
+            v4: 25
+        }
+
+        function sum2() {
+            var _sum = 0;
+            for (name in this) {
+                _sum += this[name];
+            }
+            return _sum;
+        }
+        alert(sum2.apply(o1)) // 6
+        alert(sum2.apply(o2)) // 185
+
+        //apply는 여러 객체에서 쓸 수 있는 공용함수처럼 쓰기 위한 기법, 템플릿?
+    </script>
+</body>
+
+</html>
