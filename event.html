@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        이벤트 테스트
+    </title>
+    <style>
+        .js{
+            font-weight: bold;
+            color: red;
+        }
+        #first{
+            color: green;
+        }
+        span{
+            color: blue;
+        }
+    </style> <!-- .은 클래스를 의미, #은 선택자(id)를 의미-->
+    <!-- 클래스는 광범위하게 옵션, id는 그중 특별하게 넣고 싶은 스타일 지정-->
+</head>
+
+<body>
+    <input type="button" value="hi" onclick="alert('hi')")> <!-- 버튼 눌렀을 때 hi 알림-->
+    <input type="text" onchange="alert('change')"> <!-- 텍스트 박스가 변경 될 때 알림 -->
+    <input type="text" onkeydown="alert('key down')"> <!-- 텍스트 박스에 키가 눌릴 때 알림 -->
+
+    <input type="button" value="night" onclick="
+    document.querySelector('body').style.backgroundColor = 'black';
+    document.querySelector('body').style.color = 'white';
+    "> <!-- 버튼 누를 때 배경 바뀜 -->
+    <input type="button" value="day" onclick="
+    document.querySelector('body').style.backgroundColor = 'white';
+    document.querySelector('body').style.color = 'black';
+    "> <!-- 버튼 누를 때 배경 바뀜 -->
+
+    <p>
+        텍스트 스타일 테스트입니다. 
+        <span class="js">빨간색!</span>
+        <span class="js" id="first">초록색!</span> <!-- id를 썻으면 다른 곳에서 쓰면 안됨, 중복 방지-->
+        <span> 파란색!</span>
+        <!-- span은 한 줄씩 영역, div는 한 상자로 영역-->
+    </p>
+    <script>
+
+    </script>
+</body>
+
+</html>

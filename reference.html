@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <script>
+        // 참조가 아니라 복제
+        var a = 1;
+        var b = a;
+        b = 2;
+        document.write("a : " + a + "<br/>");
+        document.write("b : " + b + "<br/><br/>");
+
+        // 참조
+        var a = {'id' : 1}; // 객체 생성
+        var b = a;
+        b.id = 2; // b뿐만 아니라 a의 id도 바뀐다
+        document.write("a.id : " + a.id + "<br/>");
+        document.write("b.id : " + b.id + "<br/><br/>");
+
+        // 함수에서 변경하기1 : 원시데이터
+        var a = 1;
+        function func(b)
+        {
+            b = 2;
+        }
+        func(a);
+        document.write("a : " + a + "<br/>");
+
+        // 함수에서 변경하기2 : 객체
+        var a = {'id' : 1};
+        function func(b)
+        {
+            b = {'id' : 2}; // 매개변수 b에 저장하는 것이라 a에는 영향이 없다.
+        }
+        func(a);
+        document.write("a.id : " + a.id + "<br/>"); // 동기식으로 진행되는 것 같지 않다. 밑에서 수정하면 여기도 같이 수정됨
+
+        // 함수에서 변경하기3 : 참조
+        var a = {'id' : 1};
+        function func(b)
+        {
+            b.id = 2; // 속성을 변경시킴
+        }
+        func(a);
+        document.write("a.id : " + a.id + "<br/>");
+    </script>
+</body>
+
+</html>
