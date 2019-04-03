@@ -22,18 +22,35 @@
 </head>
 
 <body>
+    <script>
+        var target = document.querySelector('body');
+    </script>
     <input type="button" value="hi" onclick="alert('hi')")> <!-- 버튼 눌렀을 때 hi 알림-->
     <input type="text" onchange="alert('change')"> <!-- 텍스트 박스가 변경 될 때 알림 -->
     <input type="text" onkeydown="alert('key down')"> <!-- 텍스트 박스에 키가 눌릴 때 알림 -->
 
     <input type="button" value="night" onclick="
-    document.querySelector('body').style.backgroundColor = 'black';
-    document.querySelector('body').style.color = 'white';
+    target.style.backgroundColor = 'black';
+    target.style.color = 'white';
     "> <!-- 버튼 누를 때 배경 바뀜 -->
     <input type="button" value="day" onclick="
-    document.querySelector('body').style.backgroundColor = 'white';
-    document.querySelector('body').style.color = 'black';
+    target.style.backgroundColor = 'white';
+    target.style.color = 'black';
     "> <!-- 버튼 누를 때 배경 바뀜 -->
+    <input type="button" value="day" onclick="
+    if(this.value === 'day')
+    {
+        target.style.backgroundColor = 'black';
+        target.style.color = 'white';
+        this.value = 'night'
+    }
+    else
+    {
+        target.style.backgroundColor = 'white';
+        target.style.color = 'black';
+        this.value = 'day'
+    }
+    "> <!-- 버튼 누를 때 배경 바뀌고, 버튼의 글도 바뀜 -->
 
     <p>
         텍스트 스타일 테스트입니다. 
