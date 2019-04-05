@@ -7,14 +7,16 @@
         이벤트 테스트
     </title>
     <style>
-        .js{
+        .js {
             font-weight: bold;
             color: red;
         }
-        #first{
+
+        #first {
             color: green;
         }
-        span{
+
+        span {
             color: blue;
         }
     </style> <!-- .은 클래스를 의미, #은 선택자(id)를 의미-->
@@ -23,37 +25,77 @@
 
 <body>
     <script>
-        var target = document.querySelector('body');
+        function list(num) {
+            for (var i = 0; i < num; i++) {
+                document.write('<li>' + i + '</li>');
+                //document.createElement('<li>' + i + '</li>');
+            }
+        }
+
+        var Body = 
+        {
+            setColor : function(color)
+            {
+                document.querySelector('body').style.color = color;
+            },
+            setBackgroundColor : function(color)
+            {
+                document.querySelector('body').style.backgroundColor = color;
+            }
+        }
+
+        var Links = 
+        {
+            setColor : function(color)
+            {
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while(i < alist.length)
+                {
+                    alert[i].style.color = color;
+                    i++;
+                }
+            }
+        }
+
+        function night_day(self) {
+            if (self.value === 'day') {
+                Body.setBackgroundColor('black');
+                Body.setColor('white');
+                self.value = 'night'
+            } else {
+                Body.setBackgroundColor('white');
+                Body.setColor('black');
+                self.value = 'day'
+            }
+        }
     </script>
-    <input type="button" value="hi" onclick="alert('hi')")> <!-- 버튼 눌렀을 때 hi 알림-->
+    
+    <input type="button" value="hi" onclick="alert('hi')" )> <!-- 버튼 눌렀을 때 hi 알림-->
     <input type="text" onchange="alert('change')"> <!-- 텍스트 박스가 변경 될 때 알림 -->
     <input type="text" onkeydown="alert('key down')"> <!-- 텍스트 박스에 키가 눌릴 때 알림 -->
-
+    <br>
     <input type="button" value="night" onclick="
-    target.style.backgroundColor = 'black';
-    target.style.color = 'white';
-    "> <!-- 버튼 누를 때 배경 바뀜 -->
-    <input type="button" value="day" onclick="
-    target.style.backgroundColor = 'white';
-    target.style.color = 'black';
-    "> <!-- 버튼 누를 때 배경 바뀜 -->
-    <input type="button" value="day" onclick="
-    if(this.value === 'day')
-    {
         target.style.backgroundColor = 'black';
         target.style.color = 'white';
-        this.value = 'night'
-    }
-    else
-    {
+    "> <!-- 버튼 누를 때 배경 바뀜 -->
+
+    <input type="button" value="day" onclick="
         target.style.backgroundColor = 'white';
         target.style.color = 'black';
-        this.value = 'day'
-    }
+    "> <!-- 버튼 누를 때 배경 바뀜 -->
+
+    <input type="button" value="day" onclick="
+        night_day(this);
     "> <!-- 버튼 누를 때 배경 바뀌고, 버튼의 글도 바뀜 -->
 
+    <br>
+    <input type="text" id="in">
+    <input type="button" value="줄 출력" onclick="
+        list(document.querySelector('#in').value);
+    "> <!-- 버튼 누를 때 배경 바뀜 -->
     <p>
-        텍스트 스타일 테스트입니다. 
+        텍스트 스타일 테스트입니다.
         <span class="js">빨간색!</span>
         <span class="js" id="first">초록색!</span> <!-- id를 썻으면 다른 곳에서 쓰면 안됨, 중복 방지-->
         <span> 파란색!</span>
