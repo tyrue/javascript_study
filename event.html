@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
+    <script src="function.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>
         이벤트 테스트
     </title>
@@ -25,52 +27,8 @@
 
 <body>
     <script>
-        function list(num) {
-            for (var i = 0; i < num; i++) {
-                document.write('<li>' + i + '</li>');
-                //document.createElement('<li>' + i + '</li>');
-            }
-        }
-
-        var Body = 
-        {
-            setColor : function(color)
-            {
-                document.querySelector('body').style.color = color;
-            },
-            setBackgroundColor : function(color)
-            {
-                document.querySelector('body').style.backgroundColor = color;
-            }
-        }
-
-        var Links = 
-        {
-            setColor : function(color)
-            {
-                var alist = document.querySelectorAll('a');
-                var i = 0;
-                while(i < alist.length)
-                {
-                    alert[i].style.color = color;
-                    i++;
-                }
-            }
-        }
-
-        function night_day(self) {
-            if (self.value === 'day') {
-                Body.setBackgroundColor('black');
-                Body.setColor('white');
-                self.value = 'night'
-            } else {
-                Body.setBackgroundColor('white');
-                Body.setColor('black');
-                self.value = 'day'
-            }
-        }
+        target = document.querySelector('body');
     </script>
-    
     <input type="button" value="hi" onclick="alert('hi')" )> <!-- 버튼 눌렀을 때 hi 알림-->
     <input type="text" onchange="alert('change')"> <!-- 텍스트 박스가 변경 될 때 알림 -->
     <input type="text" onkeydown="alert('key down')"> <!-- 텍스트 박스에 키가 눌릴 때 알림 -->
@@ -99,11 +57,9 @@
         <span class="js">빨간색!</span>
         <span class="js" id="first">초록색!</span> <!-- id를 썻으면 다른 곳에서 쓰면 안됨, 중복 방지-->
         <span> 파란색!</span>
+        <a>ddd</a>
         <!-- span은 한 줄씩 영역, div는 한 상자로 영역-->
     </p>
-    <script>
-
-    </script>
 </body>
 
 </html>
